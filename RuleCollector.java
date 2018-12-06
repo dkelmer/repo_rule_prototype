@@ -28,13 +28,14 @@ public class RuleCollector {
     try {
       // create writer
       BufferedWriter writer = new BufferedWriter(new FileWriter(outputFileName));
-      writer.write("load(\"@bazel_tools//tools/build_defs/repo:jvm.bzl\", \"jvm_maven_import_external\")");
+      writer.write("load(\"@bazel_tools//tools/build_defs/repo:jvm.bzl\", \"jvm_maven_import_external\")" + "\n");
+      writer.write("def maven_repositories():\n");
 
       // create reader
       BufferedReader reader = new BufferedReader(new FileReader(inputFileName));
       String line;
       while ((line = reader.readLine()) != null) {
-        writer.write(line);
+        writer.write("    " + line + "\n");
       }
 
       writer.close();
