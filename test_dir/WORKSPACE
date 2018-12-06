@@ -1,6 +1,6 @@
 local_repository(
 	name = "repo_rule",
-	path = "../../repo_rule_prototype"
+	path = "../repo_rule_prototype"
 )
 
 load("@repo_rule//:repo_rule.bzl", "rule_collector_rule")
